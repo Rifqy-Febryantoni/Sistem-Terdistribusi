@@ -2,13 +2,13 @@
 NODES="192.168.122.11:8001,192.168.122.12:8002,192.168.122.13:8003"
 
 # Single PUT to node 1
-python3 ./kvclient.py --nodes $NODES cmd --node 1 "PUT color blue"
+python3 ../program/kvclient.py --nodes $NODES cmd --node 1 "PUT color blue"
 
 # GET from node 2
-python3 ./kvclient.py --nodes $NODES cmd --node 2 "GET color"
+python3 ../program/kvclient.py --nodes $NODES cmd --node 2 "GET color"
 
 # Race two writers (great for no-mutex demo)
-python3 ./kvclient.py --nodes $NODES race "PUT color blue" "PUT color red"
+python3 ../program/kvclient.py --nodes $NODES race "PUT color blue" "PUT color red"
 
 # Read the key from ALL nodes after the race
-python3 ./kvclient.py --nodes $NODES getall color
+python3 ../program/kvclient.py --nodes $NODES getall color
